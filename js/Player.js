@@ -1,6 +1,7 @@
 class Player {
   constructor() {
     this.resources = 5;
+    this.dead = false;
     this.updateResources();
   }
 

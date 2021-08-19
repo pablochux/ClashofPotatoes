@@ -17,4 +17,5 @@ function preload() {
   bgImage = loadImage("./assets/wide.jpg");
   theViking = loadImage("./assets/character-up.png");
   tower = loadImage("./assets/King_Tower_Red.png");
+  activeTower = loadImage("./assets/King_Tower_Red_Active.png");
 }

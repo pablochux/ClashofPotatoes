@@ -13,6 +13,7 @@ class Tower {
     this.attack = attack;
     this.defense = defense;
     this.speed = speed;
+    this.active = false;
   }
 
   attack() {
@@ -21,9 +22,14 @@ class Tower {
 
   receiveDamage(damage) {
     this.health -= damage;
+    this.active = true;
   }
 
   draw() {
-    image(tower, this.x, this.y, this.width, this.height);
+    if (this.active) {
+      image(activeTower, this.x, this.y, this.width, this.height);
+    } else {
+      image(tower, this.x, this.y, this.width, this.height);
+    }
   }
 }
