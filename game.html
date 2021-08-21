@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>And The Viking Ran. He Ran So Far Away</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <H1>Instrucctions</H1>
+    <p>1º Select a position to attack (keys 1-5)</p>
+    <p>2º Select a warrior to attack (keys 6-0)</p>
+    <ul><li>Warrior -> 6</li>
+    <li>HorseRider -> 7</li>
+    <li>Strong Warrior -> 8</li></ul>
+    <button onclick="location.reload()">Reset game</button>
+    <br>
+    <br>
+   
+
+    <h2> GAME </h2>
+    <h3>Player 1. Resources: <span id="player1Resources"></span></h1>
+    <h4>Selected Position: <span id="player1Position">none</span></h1>
+   
+    <label for="tower1health">Tower 1:</label>
+    <progress id="tower1health" value="100" max="100"></progress>
+    <br>
+    <label for="tower2health">Tower 2:</label>
+    <progress id="tower2health" value="100" max="100"></progress>
+    <br>
+    <label for="tower3health">Tower 3:</label>
+    <progress id="tower3health" value="100" max="100"></progress>
+    <br>
+    <label for="tower4health">Tower 4:</label>
+    <progress id="tower4health" value="100" max="100"></progress>
+    <br>
+    <label for="tower5health">Tower 5:</label>
+    <progress id="tower5health" value="100" max="100"></progress>
+    <br>
+    <br>
+    <script src="js/constants.js"></script>
+    <script src="js/Background.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Soldier.js"></script>
+    <script src="js/Warrior.js"></script>
+    <script src="js/Tower.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="main.js"></script>
+
+    
+  </body>
+  
+</html>
