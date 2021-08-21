@@ -21,6 +21,17 @@ const WARRIOR5 = 58;
 let bgImage;
 
 let theViking;
+let andre;
+let filipe;
 let tower;
+let cross;
 
+// HTML Elements
 let player1Resources = document.getElementById("player1Resources");
+let player1Position = document.getElementById("player1Position");
+
+let tower1health = document.getElementById("tower1health");
+let tower2health = document.getElementById("tower2health");
+let tower3health = document.getElementById("tower3health");
+let tower4health = document.getElementById("tower4health");
+let tower5health = document.getElementById("tower5health");

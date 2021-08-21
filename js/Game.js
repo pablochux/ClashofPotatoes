@@ -6,11 +6,11 @@ class Game {
     this.warriors1 = [];
 
     this.player1Towers = [
-      new Tower(10, 10, 10, 10, 25),
-      new Tower(10, 10, 10, 10, 100),
-      new Tower(10, 10, 10, 10, 175),
-      new Tower(10, 10, 10, 10, 250),
-      new Tower(10, 10, 10, 10, 325),
+      new Tower(9, 10, 10, 10, 25, tower1health),
+      new Tower(9, 10, 10, 10, 100, tower2health),
+      new Tower(9, 10, 10, 10, 175, tower3health),
+      new Tower(9, 10, 10, 10, 250, tower4health),
+      new Tower(9, 10, 10, 10, 325, tower5health),
     ];
 
     this.selectedColumn;
@@ -21,16 +21,24 @@ class Game {
   }
 
   draw() {
-    if (this.player2.dead) {
+    if (this.player1.dead) {
       window.location.href =
         "https://pablochux.github.io/ClashofPotatoes/win.html";
     } else {
       clear();
       this.background.draw();
 
+      let dead = true;
       this.player1Towers.forEach((element) => {
         element.draw();
+        if (!element.destroyed) {
+          dead = false;
+        }
       });
+
+      if (dead) {
+        this.player1.dead = true;
+      }
 
       this.warriors1.forEach((element) => {
         element.draw();
@@ -40,7 +48,38 @@ class Game {
       if (frameCount % 120 === 0) {
         //   console.log("Adding 1 resource to Player 1");
         this.player1.addResource();
-        this.player1Towers[0].active = true;
+      }
+
+      // Check that the game is not over
+
+      // Warriors and towers Collision check
+      if (this.warriors1.length >= 1) {
+        console.log("Hey");
+        this.warriors1.forEach((warrior) => {
+          this.player1Towers.forEach((tower) => {
+            if (this.collisionCheck(warrior, tower)) {
+              console.log(
+                "Tower: Health: " + tower.health + "Attacked: " + warrior.attack
+              );
+              console.log(
+                "Warrior: Health: " +
+                  warrior.health +
+                  "Attacked: " +
+                  tower.attack
+              );
+              if (!tower.destroyed) {
+                warrior.receiveDamage(tower.attack);
+              }
+              if (!warrior.destroyed) {
+                tower.receiveDamage(warrior.attack);
+              }
+
+              setTimeout(() => {
+                console.log("Resting!");
+              }, 2000);
+            }
+          });
+        });
       }
 
       //   if (frameCount % 320 === 0) {
@@ -48,6 +87,31 @@ class Game {
       //     this.player2.dead = true;
       //   }
     }
+  }
+
+  collisionCheck(player, tower) {
+    // UA > TB
+    // RA > LB
+    // LA < RB
+    // TA < UB
+
+    if (player.bottomSide < tower.topSide) {
+      return false;
+    }
+
+    if (player.rightSide < tower.leftSide) {
+      return false;
+    }
+
+    if (player.leftSide > tower.rightSide) {
+      return false;
+    }
+
+    if (player.topSide > tower.bottomSide) {
+      return false;
+    }
+
+    return true;
   }
 
   keyPressed() {
@@ -58,8 +122,39 @@ class Game {
         if (this.player1.investResource(3)) {
           1;
           // add warrior to the warriors array
-          this.warriors1.push(new Warrior(10, 10, 10, 10, this.selectedColumn));
+          this.warriors1.push(
+            new Warrior(100, 1, 10, 10, this.selectedColumn, theViking)
+          );
           this.selectedColumn = false;
+          player1Position.innerText = "none";
+          console.log("Se crea WARRIOR");
+        } else {
+          alert("You don't have resources yet. Daddy chill");
+        }
+      }
+      if (keyCode === WARRIOR2) {
+        if (this.player1.investResource(5)) {
+          1;
+          // add warrior to the warriors array
+          this.warriors1.push(
+            new Warrior(100, 2, 20, 20, this.selectedColumn, filipe)
+          );
+          this.selectedColumn = false;
+          player1Position.innerText = "none";
+          console.log("Se crea WARRIOR");
+        } else {
+          alert("You don't have resources yet. Daddy chill");
+        }
+      }
+      if (keyCode === WARRIOR3) {
+        if (this.player1.investResource(2)) {
+          1;
+          // add warrior to the warriors array
+          this.warriors1.push(
+            new Warrior(100, 40, 3, 3, this.selectedColumn, andre)
+          );
+          this.selectedColumn = false;
+          player1Position.innerText = "none";
           console.log("Se crea WARRIOR");
         } else {
           alert("You don't have resources yet. Daddy chill");
@@ -69,18 +164,23 @@ class Game {
       // If there's no position selected, we select a position or we show a message
       if (keyCode === POS1) {
         this.selectedColumn = 25;
+        player1Position.innerText = 1;
         console.log("Column selected: 1");
       } else if (keyCode === POS2) {
         this.selectedColumn = 100;
+        player1Position.innerText = 2;
         console.log("Column selected: 2");
       } else if (keyCode === POS3) {
         this.selectedColumn = 175;
+        player1Position.innerText = 3;
         console.log("Column selected: 3");
       } else if (keyCode === POS4) {
         this.selectedColumn = 250;
+        player1Position.innerText = 4;
         console.log("Column selected: 4");
       } else if (keyCode === POS5) {
         this.selectedColumn = 325;
+        player1Position.innerText = 5;
         console.log("Column selected: 5");
       } else {
         alert("Select the column you want to attack. Keys 1-2-3-4-5");
