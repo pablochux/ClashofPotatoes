@@ -6,11 +6,11 @@ class Game {
     this.warriors1 = [];
 
     this.player1Towers = [
-      new Tower(9, 10, 10, 10, 25, tower1health),
-      new Tower(9, 10, 10, 10, 100, tower2health),
-      new Tower(9, 10, 10, 10, 175, tower3health),
-      new Tower(9, 10, 10, 10, 250, tower4health),
-      new Tower(9, 10, 10, 10, 325, tower5health),
+      new Tower(9, 10, 10, 10, 25, tower1health, tower1label),
+      new Tower(9, 10, 10, 10, 100, tower2health, tower2label),
+      new Tower(9, 10, 10, 10, 175, tower3health, tower3label),
+      new Tower(9, 10, 10, 10, 250, tower4health, tower4label),
+      new Tower(9, 10, 10, 10, 325, tower5health, tower5label),
     ];
 
     this.selectedColumn;
@@ -22,8 +22,8 @@ class Game {
 
   draw() {
     if (this.player1.dead) {
-      window.location.href =
-        "https://pablochux.github.io/ClashofPotatoes/win.html";
+      console.log("VICTORY!");
+      window.location.href = "win.html";
     } else {
       clear();
       this.background.draw();
@@ -38,6 +38,7 @@ class Game {
 
       if (dead) {
         this.player1.dead = true;
+        window.location.href = "win.html";
       }
 
       this.warriors1.forEach((element) => {

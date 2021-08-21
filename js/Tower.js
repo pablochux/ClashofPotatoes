@@ -1,5 +1,13 @@
 class Tower {
-  constructor(health, attack, defense, speed, position, healthProgress) {
+  constructor(
+    health,
+    attack,
+    defense,
+    speed,
+    position,
+    healthProgress,
+    healthLabel
+  ) {
     // Position
     this.y = 0;
     this.x = position;
@@ -16,6 +24,7 @@ class Tower {
     this.speed = speed;
     this.active = false;
     this.destroyed = false;
+    this.healthLabel = healthLabel;
   }
 
   mata16() {
@@ -32,7 +41,9 @@ class Tower {
       this.active = true;
     } else {
       this.destroyed = true;
-      console.log("Destroyed");
+      console.log("DESTROYED");
+      this.healthLabel.innerText = "🔥 Tower Destroyed 🔥";
+      this.healthProgress.style.display = "none";
     }
     this.healthProgress.value = this.health;
   }

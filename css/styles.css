@@ -1,14 +1,7 @@
-canvas {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
 body {
   font-family: Roboto;
+  padding-top: 16px;
+  padding-left: 16px;
 }
 
 .start-btn {

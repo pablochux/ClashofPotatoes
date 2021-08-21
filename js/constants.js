@@ -35,3 +35,9 @@ let tower2health = document.getElementById("tower2health");
 let tower3health = document.getElementById("tower3health");
 let tower4health = document.getElementById("tower4health");
 let tower5health = document.getElementById("tower5health");
+
+let tower1label = document.getElementById("tower1label");
+let tower2label = document.getElementById("tower2label");
+let tower3label = document.getElementById("tower3label");
+let tower4label = document.getElementById("tower4label");
+let tower5label = document.getElementById("tower5label");
