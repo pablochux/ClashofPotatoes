@@ -6,11 +6,11 @@ class Game {
     this.warriors1 = [];
 
     this.player1Towers = [
-      new Tower(50, 10, 10, 10, 25, 0, tower1health, tower1label),
-      new Tower(50, 10, 10, 10, 100, 0, tower2health, tower2label),
-      new Tower(50, 10, 10, 10, 175, 0, tower3health, tower3label),
-      new Tower(50, 10, 10, 10, 250, 0, tower4health, tower4label),
-      new Tower(50, 10, 10, 10, 325, 0, tower5health, tower5label),
+      new Tower(55, 10, 10, 10, 25, 0, tower1health, tower1label),
+      new Tower(55, 10, 10, 10, 100, 0, tower2health, tower2label),
+      new Tower(55, 10, 10, 10, 175, 0, tower3health, tower3label),
+      new Tower(55, 10, 10, 10, 250, 0, tower4health, tower4label),
+      new Tower(55, 10, 10, 10, 325, 0, tower5health, tower5label),
     ];
 
     this.player2Towers = [
@@ -61,7 +61,7 @@ class Game {
       });
 
       // After 2 seconds we add one resource to the player
-      if (frameCount % 120 === 0) {
+      if (frameCount % 60 === 0) {
         //   console.log("Adding 1 resource to Player 1");
         this.player1.addResource();
       }
