@@ -44,13 +44,6 @@ class Game {
         }
       });
 
-      this.player2Towers.forEach((element) => {
-        element.draw();
-        if (!element.destroyed) {
-          dead = false;
-        }
-      });
-
       if (dead) {
         this.player1.dead = true;
         window.location.href = "win.html";
