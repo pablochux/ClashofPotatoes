@@ -4,6 +4,16 @@ body {
   padding-left: 16px;
 }
 
+canvas {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10;
+  right: 10;
+  margin-left: 264px;
+  margin-top: 30px;
+}
+
 .start-btn {
   text-align: center;
   display: inline-block;
