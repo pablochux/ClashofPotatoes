@@ -6,11 +6,19 @@ class Game {
     this.warriors1 = [];
 
     this.player1Towers = [
-      new Tower(9, 10, 10, 10, 25, tower1health, tower1label),
-      new Tower(9, 10, 10, 10, 100, tower2health, tower2label),
-      new Tower(9, 10, 10, 10, 175, tower3health, tower3label),
-      new Tower(9, 10, 10, 10, 250, tower4health, tower4label),
-      new Tower(9, 10, 10, 10, 325, tower5health, tower5label),
+      new Tower(50, 10, 10, 10, 25, 0, tower1health, tower1label),
+      new Tower(50, 10, 10, 10, 100, 0, tower2health, tower2label),
+      new Tower(50, 10, 10, 10, 175, 0, tower3health, tower3label),
+      new Tower(50, 10, 10, 10, 250, 0, tower4health, tower4label),
+      new Tower(50, 10, 10, 10, 325, 0, tower5health, tower5label),
+    ];
+
+    this.player2Towers = [
+      new Tower(9, 10, 10, 10, 25, 530, tower1health2, tower1label2),
+      new Tower(9, 10, 10, 10, 100, 530, tower2health2, tower2label2),
+      new Tower(9, 10, 10, 10, 175, 530, tower3health2, tower3label2),
+      new Tower(9, 10, 10, 10, 250, 530, tower4health2, tower4label2),
+      new Tower(9, 10, 10, 10, 325, 530, tower5health2, tower5label2),
     ];
 
     this.selectedColumn;
@@ -30,6 +38,13 @@ class Game {
 
       let dead = true;
       this.player1Towers.forEach((element) => {
+        element.draw();
+        if (!element.destroyed) {
+          dead = false;
+        }
+      });
+
+      this.player2Towers.forEach((element) => {
         element.draw();
         if (!element.destroyed) {
           dead = false;

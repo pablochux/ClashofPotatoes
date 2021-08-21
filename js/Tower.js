@@ -4,13 +4,14 @@ class Tower {
     attack,
     defense,
     speed,
-    position,
+    positionX,
+    positionY,
     healthProgress,
     healthLabel
   ) {
     // Position
-    this.y = 0;
-    this.x = position;
+    this.y = positionY;
+    this.x = positionX;
     // There are 5 columns: 10, 80, 150, 220, 290
 
     this.healthProgress = healthProgress;

@@ -41,3 +41,15 @@ let tower2label = document.getElementById("tower2label");
 let tower3label = document.getElementById("tower3label");
 let tower4label = document.getElementById("tower4label");
 let tower5label = document.getElementById("tower5label");
+
+let tower1health2 = document.getElementById("tower1health2");
+let tower2health2 = document.getElementById("tower2health2");
+let tower3health2 = document.getElementById("tower3health2");
+let tower4health2 = document.getElementById("tower4health2");
+let tower5health2 = document.getElementById("tower5health2");
+
+let tower1label2 = document.getElementById("tower1label2");
+let tower2label2 = document.getElementById("tower2label2");
+let tower3label2 = document.getElementById("tower3label2");
+let tower4label2 = document.getElementById("tower4label2");
+let tower5label2 = document.getElementById("tower5label2");
